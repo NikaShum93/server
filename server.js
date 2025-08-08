@@ -87,7 +87,10 @@ app.post("/publish", async (req, res) => {
   }
 });
 
-app.get("/health", (_,res)=>res.json({ok:true}));
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log("Publish server listening on :" + port));
+
